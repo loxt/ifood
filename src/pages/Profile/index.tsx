@@ -4,12 +4,12 @@ import {SafeAreaView} from "./styles";
 import {StatusBar} from "expo-status-bar";
 import {Text} from "react-native";
 
-export default function Home() {
+export default function Profile() {
   return (
     <>
       <StatusBar style='dark' />
       <SafeAreaView>
-        <Text>Home</Text>
+        <Text>Profile</Text>
       </SafeAreaView>
     </>
   );
