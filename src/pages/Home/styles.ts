@@ -54,7 +54,7 @@ export const ButtonTypeSelect = styled.TouchableOpacity`
   margin-right: 20px;
 `;
 
-export const TextTypeSelect = styled.Text`
+export const TextTypeSelect = styled.Text<any>`
   ${(props: any) =>
     props.selected
       ? css`

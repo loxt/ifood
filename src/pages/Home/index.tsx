@@ -5,26 +5,25 @@ import { Alert, ActivityIndicator } from "react-native";
 import {
   SafeAreaView,
   RestaurantTitle,
-  View,
-  Image,
   BannerView,
-  ButtonContainer,
-  ButtonTypeSelect,
   CategoryView,
-  SelectType,
-  TextTypeSelect,
   ViewActivity,
   ViewPrincipal,
   ViewRestaurants,
+  SelectType,
+  ButtonTypeSelect,
+  TextTypeSelect,
 } from "./styles";
 import RestaurantItem from "../../components/RestaurantItem";
 import CategoryItem from "../../components/CategoryItem";
+import BannerItem from "../../components/BannerItem";
 
 export default function Home() {
   const [banner, setBanner] = useState([]);
   const [categories, setCategories] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [type, setType] = useState("Entrega");
 
   useEffect(() => {
     async function loadData() {
@@ -51,11 +50,29 @@ export default function Home() {
   const ViewHome = (props: any) => {
     return (
       <ViewPrincipal>
+        <SelectType>
+          <ButtonTypeSelect onPress={() => setType("Entrega")}>
+            <TextTypeSelect selected={type === "Entrega"}>
+              Entrega
+            </TextTypeSelect>
+          </ButtonTypeSelect>
+          <ButtonTypeSelect onPress={() => setType("Retirada")}>
+            <TextTypeSelect selected={type === "Retirada"}>
+              Retirada
+            </TextTypeSelect>
+          </ButtonTypeSelect>
+        </SelectType>
         <CategoryView horizontal showsHorizontalScrollIndicator={false}>
           {categories.map((c: any) => (
             <CategoryItem key={c.id} photo={c.img_url} text={c.nome} />
           ))}
         </CategoryView>
+
+        <BannerView horizontal showsHorizontalScrollIndicator={false}>
+          {banner.map((b: any) => (
+            <BannerItem key={b.id} photo={b.banner_img_url} />
+          ))}
+        </BannerView>
         <RestaurantTitle>Restaurantes</RestaurantTitle>
         <ViewRestaurants>
           {restaurants.map((r: any) => (
