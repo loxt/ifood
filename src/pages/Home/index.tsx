@@ -18,6 +18,7 @@ import {
   ViewRestaurants,
 } from "./styles";
 import RestaurantItem from "../../components/RestaurantItem";
+import CategoryItem from "../../components/CategoryItem";
 
 export default function Home() {
   const [banner, setBanner] = useState([]);
@@ -50,6 +51,11 @@ export default function Home() {
   const ViewHome = (props: any) => {
     return (
       <ViewPrincipal>
+        <CategoryView horizontal showsHorizontalScrollIndicator={false}>
+          {categories.map((c: any) => (
+            <CategoryItem key={c.id} photo={c.img_url} text={c.nome} />
+          ))}
+        </CategoryView>
         <RestaurantTitle>Restaurantes</RestaurantTitle>
         <ViewRestaurants>
           {restaurants.map((r: any) => (
