@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from "react";
 
 import { StatusBar } from "expo-status-bar";
-import { Text, Alert, ActivityIndicator } from "react-native";
-import { SafeAreaView } from "./styles";
+import { Alert, ActivityIndicator } from "react-native";
+import {
+  SafeAreaView,
+  RestaurantTitle,
+  View,
+  Image,
+  BannerView,
+  ButtonContainer,
+  ButtonTypeSelect,
+  CategoryView,
+  SelectType,
+  TextTypeSelect,
+  ViewActivity,
+  ViewPrincipal,
+  ViewRestaurants,
+} from "./styles";
+import RestaurantItem from "../../components/RestaurantItem";
 
 export default function Home() {
   const [banner, setBanner] = useState([]);
@@ -33,14 +48,32 @@ export default function Home() {
   }, []);
 
   const ViewHome = (props: any) => {
-    return <Text>Principal</Text>;
+    return (
+      <ViewPrincipal>
+        <RestaurantTitle>Restaurantes</RestaurantTitle>
+        <ViewRestaurants>
+          {restaurants.map((r: any) => (
+            <RestaurantItem
+              key={r.id}
+              photo={r.url_img}
+              name={r.nome}
+              note={r.nota}
+              category={r.categoria}
+              distance={r.distancia}
+              shippingRate={r.valor_frete}
+              deliveryTime={r.tempo_entrega}
+            />
+          ))}
+        </ViewRestaurants>
+      </ViewPrincipal>
+    );
   };
 
   if (!loaded)
     return (
-      <SafeAreaView>
+      <ViewActivity>
         <ActivityIndicator color="#ea1d2c" size="large" />
-      </SafeAreaView>
+      </ViewActivity>
     );
 
   return (

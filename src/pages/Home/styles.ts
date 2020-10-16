@@ -37,12 +37,12 @@ export const ButtonContainer = styled.View`
   padding: 0 20px 20px 20px;
 `;
 
-export const CategoriaView = styled.ScrollView`
+export const CategoryView = styled.ScrollView`
   margin-top: 20px;
   height: 90px;
 `;
 
-export const SelectTipo = styled.View`
+export const SelectType = styled.View`
   flex-direction: row;
   text-align: left;
   margin: 0 20px 10px 20px;
@@ -50,11 +50,11 @@ export const SelectTipo = styled.View`
   width: ${Dimensions.get("window").width}px;
 `;
 
-export const ButtonTipoSelect = styled.TouchableOpacity`
+export const ButtonTypeSelect = styled.TouchableOpacity`
   margin-right: 20px;
 `;
 
-export const TextTipoSelect = styled.Text`
+export const TextTypeSelect = styled.Text`
   ${(props: any) =>
     props.selected
       ? css`
@@ -71,13 +71,13 @@ export const BannerView = styled.ScrollView`
   width: ${Dimensions.get("window").width - 10}px;
 `;
 
-export const ViewRestaurantes = styled.View`
+export const ViewRestaurants = styled.View`
   justify-content: center;
   margin: 10px 20px 30px 20px;
   width: ${Dimensions.get("window").width - 50}px;
 `;
 
-export const TituloRestaurantes = styled.Text`
+export const RestaurantTitle = styled.Text`
   text-align: left;
   margin: 40px 20px 10px 20px;
   font-weight: bold;
