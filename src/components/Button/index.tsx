@@ -10,3 +10,5 @@ const Button = ({ theme = '', text, ...rest }: any) => {
 };
 
 export default Button;
+
+
